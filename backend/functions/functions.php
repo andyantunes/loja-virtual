@@ -15,15 +15,25 @@ function isResourceValid($resource, $allowedResources)
     return in_array($resource, $allowedResources);
 }
 
+function encryptPassword($dataArray)
+{
+    $encryptedPassword = password_hash($dataArray['password'], PASSWORD_DEFAULT, ['cost' => 12]);
+    $dataArray['password'] = $encryptedPassword;
+    return $dataArray;
+}
+
 function insert($resource, $data)
 {
-    $columns = implode(', ', array_keys($data));
-    $amountValues = trim(str_repeat('?, ', count($data)), ', ');
+    $dataArray = encryptPassword($data);
+
+    $columns = implode(', ', array_keys($dataArray));
+    $amountValues = trim(str_repeat('?, ', count($dataArray)), ', ');
 
     $sql = "INSERT INTO {$resource} ({$columns}) VALUES ({$amountValues})";
     $result = conn()->prepare($sql);
-    $result->execute(array_values($data));
+    $result->execute(array_values($dataArray));
 
+    // return array_values($data);
     return $result->errorInfo();
 }
 
