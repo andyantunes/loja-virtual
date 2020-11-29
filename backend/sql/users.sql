@@ -12,9 +12,9 @@ active int(1)
 /* Structure of tabele `users` */
 CREATE TABLE `users`(  
   `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `full_name` VARCHAR(50) NOT NULL,
-  `email` VARCHAR(50) NOT NULL,
-  `password` VARCHAR(60) NOT NULL,
+  `full_name` VARCHAR(50),
+  `email` VARCHAR(50),
+  `password` VARCHAR(60),
   `avatar` VARCHAR(60),
   `created_at` DATETIME,
   `updated_at` DATETIME,
