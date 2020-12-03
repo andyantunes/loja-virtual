@@ -14,9 +14,9 @@ active int(1)
 /* Structure of tabele `customers` */
 CREATE TABLE `customers`(  
   `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `full_name` VARCHAR(50) NOT NULL,
-  `email` VARCHAR(50) NOT NULL,
-  `password` VARCHAR(60) NOT NULL,
+  `full_name` VARCHAR(50),
+  `email` VARCHAR(50),
+  `password` VARCHAR(60),
   `cpf` VARCHAR(14),
   `phone` VARCHAR(15),
   `avatar` VARCHAR(60) DEFAULT 'null',

@@ -1,7 +1,7 @@
 <?php
 /* TODO */
 /* Fazer tratativa de erros no insert do db */
-/* MOntar função para o update */
+/* Montar função para o update */
 
 require 'dbConnection.php';
 
@@ -24,7 +24,8 @@ function encryptPassword($dataArray)
 
 function insert($resource, $data)
 {
-    $dataArray = encryptPassword($data);
+
+    $dataArray = array_key_exists('password', $data) ? encryptPassword($data) : $data;
 
     $columns = implode(', ', array_keys($dataArray));
     $amountValues = trim(str_repeat('?, ', count($dataArray)), ', ');

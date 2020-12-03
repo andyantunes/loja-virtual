@@ -1,8 +1,9 @@
-products = { id, name, description, category, price, genre, featured, size_id, amount, 
+products = { id, name, image, description, category, price, genre, featured, size_id, amount, 
             created_at, updated_at, excluded };
 
 id int(11)
-name varchar(100)
+name varchar(50)
+image varchar(100)
 description text
 category varchar(50)
 price float(8)
@@ -17,13 +18,14 @@ excluded int(1)
 /* Structure of tabele `products` */
 CREATE TABLE `products`(  
   `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50) NOT NULL,
-  `description` TEXT NOT NULL,
-  `category` VARCHAR(50) NOT NULL,
-  `price` FLOAT(8) NOT NULL,
-  `genre` VARCHAR(20) NOT NULL,
+  `name` VARCHAR(50),
+  `image` VARCHAR(100),
+  `description` TEXT,
+  `category` VARCHAR(50),
+  `price` FLOAT(8),
+  `genre` VARCHAR(20),
   `featured` INT(1) DEFAULT 0,
-  `size_id` INT(2) UNSIGNED NOT NULL,
+  `size_id` INT(2) UNSIGNED,
   `amount` INT(10) DEFAULT 0,
   `created_at` DATETIME,
   `updated_at` DATETIME,

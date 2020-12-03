@@ -6,7 +6,7 @@ require './API/resources.php';
 function router($method, $resource)
 {
     $allowedMethods = ['POST', 'GET', 'PUT', 'DELETE'];
-    $allowedResources = ['users'];
+    $allowedResources = ['users', 'customers', 'address', 'products', 'comments', 'historic', 'bags'];
 
     if (isMethodValid($method, $allowedMethods)) {
 
