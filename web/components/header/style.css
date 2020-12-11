@@ -1,0 +1,106 @@
+.header {
+  height: 15.2vh;
+  width: 100vw;
+  padding: 0 4rem;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0a3665;
+  color: white;
+  z-index: 1;
+}
+
+.header .logo {
+  margin-top: 5px;
+}
+
+.header .input-block {
+  width: 850px;
+  height: 45px;
+  position: relative;
+}
+
+.header .input-block input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  padding-left: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.header .input-block i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: red;
+  padding: 0.9rem;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.header .wrapper {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header .wrapper .input-options {
+  width: 100px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.header .wrapper .input-options i:first-child {
+  font-size: 1.2rem;
+}
+
+.header .wrapper .input-options p {
+  font-size: 1rem;
+}
+
+.header .wrapper .input-options i:last-child {
+  font-size: 1rem;
+}
+
+.header .wrapper .login-wrapper {
+  padding: 0.5rem 0;
+  min-width: 9.5rem;
+  position: absolute;
+  top: 70px;
+  display: none;
+  text-align: left;
+  background-color: #0a3665;
+  -webkit-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.header .wrapper .login-wrapper p {
+  max-height: 32px;
+  display: block;
+  padding: 5px 20px 5px 10px;
+  white-space: nowrap;
+  text-decoration: none;
+  line-height: 1;
+  font-size: 0.875rem;
+  color: #fff;
+}
+
+.header .wrapper .login-wrapper p:hover {
+  color: #e61a4d;
+}
+
+.header .wrapper .login-wrapper.show {
+  display: block !important;
+}

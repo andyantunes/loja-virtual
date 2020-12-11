@@ -2,17 +2,17 @@
 
 require './functions/functions.php';
 
-function get($resource, $id = null)
+function get($resource, $id = null, $password = null)
 {
-    $result = select($resource, $id);
-
+    $result = select($resource, $id, $password);
     if ($result) {
+        echo (json_encode($result));
 
-        echo (json_encode(array('status' => 'success', 'data' => $result)));
+        //     echo (json_encode(array('status' => 'success', 'data' => $result)));
     } else {
 
         echo (json_encode(array('status' => 'error', 'data' => 'Nenhum registro encontrado!')));
-        header('HTTP/1.1 404 Resource Not Found');
+        header('HTTP/1.1 204 No Content');
     }
 }
 
@@ -33,7 +33,7 @@ function post($resource)
         }
     } else {
 
-        echo (json_encode(array('status' => 'error', 'data' => 'Dados insuficientes')));
+        echo (json_encode(array('status' => 'error', 'data' => $data)));
         header('HTTP/1.1 422 Bad Request');
     }
 }

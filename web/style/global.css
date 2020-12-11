@@ -1,0 +1,17 @@
+:root {
+  --viewport-color: #fff;
+  --primary-color: #07f2b0;
+  --secondary-color: #f20530;
+  --placeholder-color: rgba(0, 0, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hide-element {
+  display: none !important;
+}

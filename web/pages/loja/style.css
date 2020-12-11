@@ -1,0 +1,224 @@
+.container {
+  padding-top: 15.2vh;
+  padding-left: 14.5vw;
+}
+
+.container .slider-wrapper {
+  padding-top: 1rem;
+}
+
+/* Product Card */
+.product-card-wrapper {
+  margin: 3rem 2rem;
+  padding-bottom: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.product-card-wrapper .product-card {
+  max-width: 16.2rem;
+  padding: 0.5rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+}
+
+.product-card-wrapper .product-card .card-header {
+  margin-bottom: 0.5rem;
+}
+
+.product-card-wrapper .product-card .card-header img {
+  width: 100%;
+}
+
+.product-card-wrapper .product-content .product-name {
+  margin-bottom: 0.5rem;
+}
+
+.product-card-wrapper .product-content .product-category {
+  margin-bottom: 0.5rem;
+}
+
+.product-card-wrapper .product-content .product-price {
+  font-weight: 600;
+}
+
+.product-card-wrapper .purchase-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.product-card-wrapper .purchase-container button {
+  margin-top: 1rem;
+  padding: 0.4rem 0px;
+  width: 100%;
+  background-color: #5cb85c;
+  color: white;
+  font-style: oblique;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Comments */
+.comments-wrapper {
+  max-width: 35rem;
+  height: 20rem;
+  margin: auto;
+  padding: 1rem 2rem;
+  position: fixed;
+  right: -570px;
+  bottom: 0;
+  background: white;
+  overflow-y: scroll;
+  border-radius: 0 10px 10px 0;
+  border-radius: 5px 0 0 0;
+  box-shadow: 1px 1px 10px #066ab2;
+  transition: right ease-in-out 0.5s;
+}
+
+.comments-wrapper.opened {
+  right: 0;
+}
+
+.comments-wrapper .comment-wrapper-header {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comments-wrapper .comment-wrapper-header i {
+  cursor: pointer;
+}
+
+.comments-wrapper .comment + .comment {
+  border-top: 1px solid rgba(6, 106, 178, 0.4);
+  margin-top: 1.2rem;
+  padding-top: 0.5rem;
+}
+
+.comments-wrapper .comment .comment-header {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comments-wrapper .comment .comment-user {
+}
+
+.comments-wrapper .comment .comment-date {
+}
+
+.comments-wrapper .comment .comment-content {
+}
+
+/* Slider */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: white;
+  font-family: 'Poppins', sans-serif;
+  /* overflow: hidden; */
+}
+
+.center {
+  -webkit-box-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: flex;
+  grid-gap: 1em;
+  overflow: hidden;
+  width: 55em;
+}
+.wrapper > .inner {
+  display: -webkit-box;
+  display: flex;
+  grid-gap: 1em;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.card {
+  margin: 1rem 0 0.5rem;
+  border-radius: 0.5em;
+  box-shadow: 1px 1px 10px #066ab2;
+}
+.card > img {
+  border-top-right-radius: inherit;
+  border-top-left-radius: inherit;
+  display: block;
+  width: 17.5em;
+}
+.card > .content {
+  background: white;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  padding: 1em;
+  text-align: center;
+}
+.card > .content > h1,
+.card > .content > h3 {
+  margin: 0.35em 0;
+}
+.card > .content > h1 {
+  color: black;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.card > .content > h3 {
+  color: #000;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.map {
+  margin-top: 0.5em;
+  background: #066ab2;
+  padding: 5px 16px;
+  border-radius: 15px;
+}
+.map > button {
+  all: unset;
+  background: white;
+  cursor: pointer;
+  margin: 0 0.125em;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 100%;
+  height: 0.75em;
+  width: 0.75em;
+}
+.map > button.active {
+  background: red;
+  /* content: "";
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  border-radius: 100%;
+  height: 0.5em;
+  width: 0.5em; */
+}

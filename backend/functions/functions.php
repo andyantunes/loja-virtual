@@ -3,6 +3,10 @@
 /* Fazer tratativa de erros no insert do db */
 /* Montar função para o update */
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+
 require 'dbConnection.php';
 
 function isMethodValid($method, $allowedMethods)
@@ -38,14 +42,32 @@ function insert($resource, $data)
     return $result->errorInfo();
 }
 
-function select($resource, $id)
+function select($resource, $id, $password)
 {
-    $sql = $id ? "SELECT * FROM {$resource} WHERE id = :id AND active = 1" : "SELECT * FROM {$resource} WHERE active = 1";
+    if (isLogin($id)) {
+        $sql = "SELECT * FROM {$resource} WHERE email = :id AND active = 1";
+    } else {
+        $sql = $id ? "SELECT * FROM {$resource} WHERE id = :id AND active = 1" : "SELECT * FROM {$resource} WHERE active = 1";
+    }
+
     $result = conn()->prepare($sql);
     $result->bindValue(':id', $id);
     $result->execute();
+    $user = $result->fetchAll(PDO::FETCH_OBJ);
 
-    return $result->fetchAll(PDO::FETCH_OBJ);
+    if (isLogin($id)) {
+        if (!isValidPassword($password, $user[0]->password)) {
+            return [
+                'status' => 'error',
+                'message' => 'Username or password incorrect',
+            ];
+        }
+    }
+
+    return [
+        'status' => 'success',
+        'data' => $user,
+    ];
 }
 
 function update($resource, $data, $id)
@@ -85,4 +107,31 @@ function exclude($resource, $id = null)
     $result->execute();
 
     return $result->errorInfo();
+}
+
+function isLogin($data)
+{
+    return strstr($data, '@');
+}
+
+function isValidPassword($password, $hash)
+{
+    return password_verify($password, $hash);
+}
+
+function mountLoginObject($obj, $insertedPassword)
+{
+    return (object) [
+        'id' => $obj->id,
+        'full_name' => $obj->full_name,
+        'email' => $obj->email,
+        'cpf' => $obj->cpf,
+        'phone' => $obj->phone,
+        'avatar' => $obj->avatar,
+        'image' => $obj->id,
+        'created_at' => $obj->created_at,
+        'updated_at' => $obj->updated_at,
+        'active' => $obj->active,
+        'validLogin' => isValidPassword($insertedPassword, $obj->password),
+    ];
 }
